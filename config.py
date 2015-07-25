@@ -75,12 +75,18 @@ URL = Config_file('url','URL')
 URL_follwed = Config_file('url', 'URL_follwed')
 USER = Config_file('credentials','USER')
 PASS = Config_file('credentials','PASS')
-Video_folder = Config_file('folders','Video_folder')
+
+if (Config_file('folders','Video_folder')[:1] == "/"):
+        Video_folder = Config_file('folders','Video_folder')
+else:
+        Video_folder = (os.getcwd()+ "/" + Config_file('folders','Video_folder'))
+
 Script_folder = Config_file('folders','Script_folder')
 Log_file = Config_file('files','Log_file')
 wishlist_file = Config_file('files','wishlist_file')
 Time_delay = int(Config_file('delays','Time_delay'))
 Version = Config_file('version','Version')
-RTMPDUMP = Config_file('advanced','RTMPDUMP')
+LIVESTREAMER = Config_file('advanced','LIVESTREAMER')
+Disable_wishlist = Config_file('advanced','Disable_wishlist')
 # Enable storing html to debug.log file + set logging level
 Debugging = ast.literal_eval(Config_file('debug','Debugging'))

@@ -3,11 +3,16 @@ CaptureBate
 
 CaptureBate lets you follow and archive your favorite models shows on chaturbate.com
 
+Changes between ohhdemgirls and redyready
+==========
+Uses livestreamer to capture
+The Video_folder must have the full path or is a folder in the same directory as CaptureBate.
+
 Requirements
 ==========
 (Debian 7, minimum)
 
-[RTMPDump(ksv)](https://github.com/BurntSushi/rtmpdump-ksv) used to capture the streams.
+[livestreamer](http://docs.livestreamer.io/) used to capture the streams.
 
 [BeautifulSoup4](https://pypi.python.org/pypi/beautifulsoup4/4.3.2) the screen-scraping library.
 

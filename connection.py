@@ -17,7 +17,7 @@ def Connection():
 			# Retrieve the CSRF token first
 			r1 = client.get(URL)
 			break
-		except Exception, e:
+		except Exception as e:
 			logging.error('Some error during connecting to '+URL)
 			logging.error(e)
 			logging.error('Trying again after 60 seconds')
@@ -33,7 +33,7 @@ def Connection():
 	login_data = dict(username=USER, password=PASS, csrfmiddlewaretoken=csrftoken, next='/')
 	try:
 		r = client.post(URL, data=login_data, headers=dict(Referer=URL))
-	except Exception, e:
+	except Exception as e:
 		logging.error('Some error during posting to '+URL)
 		logging.error(e)		
 	#logging.debug('Page Source for ' + URL + '\n' + r.text)

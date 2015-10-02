@@ -4,7 +4,7 @@ Config functions such as read settings from file, logging, etc.
 import logging
 import shutil
 import os, sys
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import ast
 
 def Config_file(section, option):
@@ -12,7 +12,7 @@ def Config_file(section, option):
 	config.read('config.conf')
 	try:
 		value = config.get(section, option)
-	except Exception, e:
+	except Exception as e:
 		logging.error('Error reading config file!')
 		logging.error(e)
 		sys.exit(1)
@@ -48,7 +48,7 @@ def Wishlist():
         with open(wishlist_file, 'r') as f:
                 data = [line.strip() for line in f]
         f.close()
-    except IOError, e:
+    except IOError as e:
         logging.info("Error: %s file does not appear to exist." % wishlist_file)
         logging.debug(e)
         sys.exit(1)
@@ -67,7 +67,7 @@ def Store_Debug(lines, filename):
 		for line in lines:
 			f.write(line.encode("utf-8"))
 		f.close()
-	except IOError, e:
+	except IOError as e:
 		logging.info("Error: debug.log file does not appear to exist.")
 
 # Setup options

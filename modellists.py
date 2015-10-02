@@ -12,7 +12,7 @@ def Models_list(client):
 	try:
 		logging.info("Redirecting to " + URL_follwed)
 		r2 = client.get(URL_follwed)
-	except Exception, e:
+	except Exception as e:
 		logging.error('Some error during connecting to '+URL)
 		logging.error(e)
 	soup = BeautifulSoup(r2.text)
@@ -55,7 +55,7 @@ def Select_models(Models_list):
 
 def Password_hash(string):
     #replace special chars for unix shell! \$ and \/ and \= mostly
-    string = string.replace("\u003D","\=")
+    string = string.replace("\\u003D","\=")
     string = string.replace("$", "\$")
     string = string.replace("/", "\/")
     return string
@@ -80,7 +80,7 @@ def Get_links(client, Models_list_store):
                     flinks.write('livestreamer --output "%(video_folder)s/Chaturbate_%(date_string)s_%(model_name)s.flv" http://chaturbate.com/%(model_name)s best' % form_dict)
                     flinks.write('\n')
                     flinks.close()
-                    os.chmod(Script_folder+'/'+model+'.sh', 0777)
+                    os.chmod(Script_folder+'/'+model+'.sh', 0o777)
                     logging.info('[Get_links] ' + model+'.sh is created')
     else:
         logging.warning('[Get_links] No models to get!')

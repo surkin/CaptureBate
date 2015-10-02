@@ -21,6 +21,9 @@ Requirements
 Setup
 ===========
 
+Prevent git to publish your chaturbate account. Changes in config.config won't be tracked
+`git update-index --assume-unchanged config.conf`
+
 Install requirements `sudo pip install -r requirements.txt`
 
 Get a [chaturbate account](https://chaturbate.com/accounts/register/), once you're signed up put your credentials in the `config.conf` file and - if needed - adjust the other options.
